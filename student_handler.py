@@ -1,5 +1,5 @@
 import json
-import connection
+import database.connection as connection
 from core.response import send_json, send_404
 
 def parse_body(handler):
