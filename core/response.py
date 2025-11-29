@@ -1,5 +1,5 @@
 import json
-from middleware import add_cors_headers
+from core.middleware import add_cors_headers
 
 def send_json(handler, status, data):
     handler.send_response(status)
@@ -13,4 +13,5 @@ def send_404(handler):
     add_cors_headers(handler)
     handler.send_header("Content-Type", "text/html")
     handler.end_headers()
-    handler.wfile.write(b"<h1>404 Not Found</h1>")
+    # wfile.write expects bytes, so encode the HTML string
+    handler.wfile.write("<h1>404 Not Found</h1>".encode("utf-8"))
