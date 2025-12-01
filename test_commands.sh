@@ -1,9 +1,11 @@
-curl -X GET "https://animated-goggles-pj47ppjpj7rrhj5.github.dev//api/students"
+# A. Get All Students
+curl -X GET "http://localhost:8000/api/students"
 
 # B. Get One Student
-curl -X GET "https://animated-goggles-pj47ppjpj7rrhj5.github.dev//api/students/1"
+curl -X GET "http://localhost:8000/api/students/1"
 
-curl -X POST "https://animated-goggles-pj47ppjpj7rrhj5.github.dev//api/students" \
+# C. Create Student
+curl -X POST "http://localhost:8000/api/students" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Alice Johnson",
@@ -12,5 +14,21 @@ curl -X POST "https://animated-goggles-pj47ppjpj7rrhj5.github.dev//api/students"
     "year": 2
   }'
 
+# D. Update Student
+curl -X PUT "http://localhost:8000/api/students/1" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Alice Updated",
+    "email": "alice_new@example.com",
+    "course": "Data Science",
+    "year": 3
+  }'
 
-.
+# E. Delete Student
+curl -X DELETE "http://localhost:8000/api/students/1"
+
+
+##################### DB Observation Via SQLite Web
+- install https://github.com/coleifer/sqlite-web
+- pip install sqlite-web
+- sqlite_web students.db
