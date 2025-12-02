@@ -8,10 +8,10 @@ curl -X GET "http://localhost:8000/api/students/1"
 curl -X POST "http://localhost:8000/api/students" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "Alice Johnson",
-    "email": "alice@example.com",
+    "name": "Sanjana Panda",
+    "email": "sanjana@example.com",
     "course": "Computer Science",
-    "year": 2
+    "year": 3
   }'
 
 # D. Update Student
