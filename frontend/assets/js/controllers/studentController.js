@@ -4,7 +4,7 @@ import {
     // apiCreate, 
     // apiUpdate, 
     // apiDelete 
-} from "../services/studentService.js";
+} from "../services/studentServices.js";
 
 // import { showAlert } from "../components/Alert.js";
 import { renderStudentTable } from "../components/StudentTable.js";
@@ -13,7 +13,6 @@ import { resetForm, fillForm } from "../components/StudentForm.js";
 import { setState, getState } from "../state/store.js";
 import { $, createElement } from "../utils/dom.js";
 
-console.log("this is student controller");
 // Setup event listeners and load initial data
 // Initialize the main logic and set up all necessary event listeners
 export function initStudentController() {
@@ -78,3 +77,46 @@ export async function loadStudents() {
   spinner.style.display = "none";
   table.style.display = "block";
 }
+
+
+// // Create a new student
+// export async function createNewStudent(data) {
+//   const res = await apiCreate(data);
+//   if (res.ok) {
+//     showAlert("Student added!");
+//     resetForm();
+//     loadStudents();
+//   }
+// }
+
+// // Load a student into the form for editing
+// export async function editStudent(id) {
+//   const student = await apiGetOne(id);
+
+//   setState({ editingId: id });
+//   fillForm(student);
+
+//   window.scrollTo({ top: 0, behavior: "smooth" });
+// }
+
+// // Update an existing student
+// export async function updateStudent(id, data) {
+//   const res = await apiUpdate(id, data);
+//   if (res.ok) {
+//     showAlert("Updated!");
+//     resetForm();
+//     setState({ editingId: null });
+//     loadStudents();
+//   }
+// }
+
+// // Delete a student
+// export async function deleteStudentAction(id) {
+//   if (!confirm("Delete this student?")) return;
+
+//   const res = await apiDelete(id);
+//  	if (res.ok) {
+//     showAlert("Deleted!");
+//     loadStudents();
+//   }
+// }
