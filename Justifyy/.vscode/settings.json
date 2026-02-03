@@ -1,0 +1,9 @@
+{
+  "python.analysis.extraPaths": [
+    "./backend",
+    "./backend/app"
+],
+"git.ignoreLimitWarning": true,
+"python-envs.defaultEnvManager": "ms-python.python:system",
+"python-envs.pythonProjects": []
+}

@@ -1,0 +1,62 @@
+import "./globals.css";
+import { Toaster } from "react-hot-toast";
+import { withBasePath } from "@/lib/routes";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className="bg-black text-gray-100 min-h-screen flex flex-col">
+        {/* Global notifications */}
+        <Toaster position="top-center" />
+
+        {/* Header */}
+        <header className="border-b border-gray-800">
+          <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 className="text-lg font-semibold">
+              <a href="/" className="hover:text-white">
+                JustiFy
+              </a>
+            </h1>
+
+            <nav className="flex gap-5 text-sm">
+              <a
+                href={withBasePath("/")}
+                className="text-gray-300 hover:text-white"
+              >
+                Home
+              </a>
+              <a
+                href={withBasePath("/new")}
+                className="text-gray-300 hover:text-white"
+              >
+                New Case
+              </a>
+              <a
+                href={withBasePath("/cases")}
+                className="text-gray-300 hover:text-white"
+              >
+                All Cases
+              </a>
+            </nav>
+          </div>
+        </header>
+
+        {/* Main content */}
+        <main className="flex-1">
+          {children}
+        </main>
+
+        {/* Footer */}
+        <footer className="border-t border-gray-800">
+          <div className="max-w-4xl mx-auto px-6 py-4 text-sm text-gray-500 text-center">
+            © {new Date().getFullYear()} JustiFy — Legal Triage Assistant | Built With ❤️ By Asutosh Panda
+          </div>
+        </footer>
+      </body>
+    </html>
+  );
+}
